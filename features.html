@@ -84,6 +84,22 @@
   .row p { font-size: 15px; color: #4b453b; }
   .row .soon { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--bahi); border: 1.5px solid var(--bahi); border-radius: 999px; padding: 1px 8px; margin-left: 8px; white-space: nowrap; }
 
+  /* reach: platform chips */
+  .prow { padding: 18px 26px 20px; border-top: 1px dashed rgba(35,32,26,0.3); }
+  .prow:first-of-type { border-top: none; }
+  .prow h3 { font-size: 16px; font-weight: 800; margin-bottom: 12px; }
+  .plat-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .plat {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #fff; border: 2px solid var(--ink); border-radius: 999px;
+    padding: 7px 14px; font-weight: 700; font-size: 14px;
+  }
+  .plat i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+  .plat .tag { font-size: 10px; font-weight: 800; letter-spacing: 0.05em; border-radius: 999px; padding: 1px 7px; }
+  .plat .tag.live { color: var(--wa); border: 1.5px solid var(--wa); }
+  .plat .tag.soonx { color: var(--bahi); border: 1.5px solid var(--bahi); }
+  .pnote { padding: 4px 26px 20px; font-size: 14px; color: #6b6353; }
+
   /* seller voice */
   section.voice { padding: 18px 0 0; }
   .voice-grid { display: flex; gap: 22px; align-items: center; max-width: 620px; margin: 0 auto; }
@@ -203,6 +219,33 @@
         <p data-i18n="f_r12p">Mehtaji chhutti nahi leta, bhoolta nahi, aur ek saath sau kaam sambhal leta hai.</p>
       </div>
     </div>
+
+    <div class="ledger">
+      <div class="head"><span class="deva" data-i18n="f_g4">पहुँच</span><span class="en">Reach</span></div>
+      <div class="prow">
+        <h3 data-i18n="f_p1h">Jahan aap bechte ho</h3>
+        <div class="plat-chips">
+          <span class="plat"><i style="background:#F43397"></i>Meesho <b class="tag live" data-i18n="tag_live">LIVE</b></span>
+          <span class="plat"><i style="background:#FF9900"></i>Amazon <b class="tag live" data-i18n="tag_live">LIVE</b></span>
+          <span class="plat"><i style="background:#F5B301"></i><span data-i18n="chip_web">Apni website</span> <b class="tag live" data-i18n="tag_live">LIVE</b></span>
+          <span class="plat"><i style="background:#2874F0"></i>Flipkart <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><i style="background:#FF3F6C"></i>Myntra <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><i style="background:#008ECC"></i>JioMart <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><i style="background:#2C4152"></i>Ajio <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+        </div>
+      </div>
+      <div class="prow">
+        <h3 data-i18n="f_p2h">Jahan aap baat karte ho</h3>
+        <div class="plat-chips">
+          <span class="plat"><i style="background:#25D366"></i>WhatsApp <b class="tag live" data-i18n="tag_live">LIVE</b></span>
+          <span class="plat"><i style="background:#229ED9"></i>Telegram <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><i style="background:#E4405F"></i>Instagram DM <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><i style="background:#34C759"></i><span data-i18n="chip_sms">Phone ka message (SMS)</span> <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><i style="background:#3A76F0"></i>Signal <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+        </div>
+      </div>
+      <p class="pnote" data-i18n="f_pnote">Naya app seekhne ki zaroorat nahi. Jo aap pehle se use karte ho, Mehtaji wahin aa jaata hai.</p>
+    </div>
   </section>
 
   <section class="voice">
@@ -274,6 +317,9 @@
       f_r11p: `Kya hua, kab hua, kisne bola, sab likha rehta hai. Purane bahi-khate ki tarah, kuch gayab nahi hota.`,
       f_r12h: `24/7 munim`,
       f_r12p: `Mehtaji chhutti nahi leta, bhoolta nahi, aur ek saath sau kaam sambhal leta hai.`,
+      f_g4: `पहुँच`, f_p1h: `Jahan aap bechte ho`, f_p2h: `Jahan aap baat karte ho`,
+      chip_web: `Apni website`, chip_sms: `Phone ka message (SMS)`, tag_live: `LIVE`, tag_soon: `JALD`,
+      f_pnote: `Naya app seekhne ki zaroorat nahi. Jo aap pehle se use karte ho, Mehtaji wahin aa jaata hai.`,
       f_close_h2: `Padhna chhodo, karke dekho`,
       f_close_p: `Homepage pe Mehtaji ka demo chal raha hai. Apna product type karo, live hote dekho.`,
       f_demo_btn: `Demo try karo`,
@@ -310,6 +356,9 @@
       f_r11p: `क्या हुआ, कब हुआ, किसने बोला, सब लिखा रहता है. पुराने बही-खाते की तरह, कुछ ग़ायब नहीं होता.`,
       f_r12h: `24/7 मुनीम`,
       f_r12p: `मेहताजी छुट्टी नहीं लेता, भूलता नहीं, और एक साथ सौ काम संभाल लेता है.`,
+      f_g4: `पहुँच`, f_p1h: `जहाँ आप बेचते हैं`, f_p2h: `जहाँ आप बात करते हैं`,
+      chip_web: `अपनी website`, chip_sms: `फ़ोन का message (SMS)`, tag_live: `LIVE`, tag_soon: `जल्द`,
+      f_pnote: `नया app सीखने की ज़रूरत नहीं. जो आप पहले से use करते हैं, मेहताजी वहीं आ जाता है.`,
       f_close_h2: `पढ़ना छोड़ो, करके देखो`,
       f_close_p: `Homepage पर मेहताजी का demo चल रहा है. अपना product type करो, लाइव होते देखो.`,
       f_demo_btn: `Demo try करो`,
@@ -346,6 +395,9 @@
       f_r11p: `What happened, when, on whose word, all written down. Like the old bahi-khata, nothing goes missing.`,
       f_r12h: `A munim who never sleeps`,
       f_r12p: `Mehtaji takes no holidays, forgets nothing, and handles a hundred things at once.`,
+      f_g4: `पहुँच`, f_p1h: `Where you sell`, f_p2h: `Where you chat`,
+      chip_web: `Your website`, chip_sms: `Phone messages (SMS)`, tag_live: `LIVE`, tag_soon: `SOON`,
+      f_pnote: `No new app to learn. Whatever you already use, Mehtaji shows up there.`,
       f_close_h2: `Stop reading, try it`,
       f_close_p: `There's a live Mehtaji demo on the homepage. Type your product, watch it go live.`,
       f_demo_btn: `Try the demo`,
@@ -382,6 +434,9 @@
       f_r11p: `શું થયું, ક્યારે થયું, કોણે કહ્યું, બધું લખેલું રહે. જૂના ચોપડાની જેમ, કંઈ ગાયબ થતું નથી.`,
       f_r12h: `24/7 મુનીમ`,
       f_r12p: `મેહતાજી રજા લેતો નથી, ભૂલતો નથી, અને એક સાથે સો કામ સંભાળી લે.`,
+      f_g4: `પહોંચ`, f_p1h: `જ્યાં તમે વેચો છો`, f_p2h: `જ્યાં તમે વાત કરો છો`,
+      chip_web: `તમારી website`, chip_sms: `ફોનનો message (SMS)`, tag_live: `LIVE`, tag_soon: `જલદી`,
+      f_pnote: `કોઈ નવી app શીખવાની જરૂર નથી. તમે જે વાપરો છો, મેહતાજી ત્યાં જ આવી જાય છે.`,
       f_close_h2: `વાંચવાનું છોડો, કરીને જુઓ`,
       f_close_p: `Homepage પર મેહતાજીનો demo ચાલે છે. તમારું product type કરો, લાઇવ થતું જુઓ.`,
       f_demo_btn: `Demo try કરો`,
