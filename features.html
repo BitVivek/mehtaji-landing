@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#A4243B">
+<title>Mehtaji · Features, seedhi bhasha mein</title>
+<meta name="description" content="Sab kuch jo Mehtaji aapke business ke liye karta hai: listing, hisaab, GST, returns, approvals. Simple terms mein.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bahi: #A4243B;
+    --bahi-deep: #7E1B2E;
+    --paper: #FAF3E3;
+    --ink: #23201A;
+    --haldi: #F5B301;
+    --rule: rgba(72, 105, 154, 0.18);
+    --wa: #075E54;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    font-family: "Hanken Grotesk", system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    background-image:
+      linear-gradient(to right, transparent 63px, var(--bahi) 63px, var(--bahi) 64px, transparent 64px, transparent 67px, var(--bahi) 67px, var(--bahi) 68px, transparent 68px),
+      repeating-linear-gradient(to bottom, transparent 0, transparent 31px, var(--rule) 31px, var(--rule) 32px);
+  }
+  @media (max-width: 760px) { body { background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 31px, var(--rule) 31px, var(--rule) 32px); } }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  header.top { display: flex; align-items: center; gap: 14px; padding: 18px 0; }
+  .wordmark { display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--ink); }
+  .wordmark .latin { font-family: Anton, sans-serif; font-size: 26px; letter-spacing: 0.02em; }
+  .wordmark .deva { font-family: "Tiro Devanagari Hindi", serif; font-size: 18px; color: var(--bahi); }
+  .top .spacer { flex: 1; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 800; border-radius: 10px;
+    padding: 13px 22px; font-size: 16px; transition: transform 0.12s ease;
+  }
+  .btn:active { transform: scale(0.98); }
+  .btn:focus-visible { outline: 3px solid var(--haldi); outline-offset: 2px; }
+  .btn-wa { background: var(--wa); color: #fff; }
+  .btn-ghost { color: var(--ink); border: 2px solid var(--ink); }
+  .top .btn { padding: 9px 16px; font-size: 14px; }
+  .lang { font-family: inherit; font-weight: 700; font-size: 13px; color: var(--ink); background: transparent; border: 2px solid var(--ink); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+  .lang:focus-visible { outline: 3px solid var(--haldi); outline-offset: 2px; }
+  @media (max-width: 640px) { .top .btn-wa { display: none; } }
+
+  /* slim red band */
+  .band {
+    background: var(--bahi); color: var(--paper); border-radius: 22px; margin-top: 8px;
+    padding: 44px 48px 40px 64px; position: relative; overflow: hidden;
+    background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 14px, rgba(250,243,227,0.35) 14px, rgba(250,243,227,0.35) 22px);
+    background-size: 3px 100%; background-position: 30px 0; background-repeat: repeat-y;
+  }
+  .band .eyebrow { font-family: "Tiro Devanagari Hindi", serif; font-size: 20px; color: var(--haldi); margin-bottom: 10px; }
+  h1 {
+    font-family: Anton, sans-serif; font-weight: 400; text-transform: uppercase;
+    font-size: clamp(34px, 5vw, 58px); line-height: 1.04; letter-spacing: 0.01em; margin-bottom: 14px;
+  }
+  h1 .underline { box-shadow: inset 0 -0.18em 0 var(--haldi); }
+  .band p.sub { font-size: 17px; max-width: 52ch; color: rgba(250,243,227,0.92); }
+
+  /* feature ledgers */
+  section.ledgers { padding: 56px 0 20px; display: grid; gap: 34px; }
+  .ledger { border: 2px solid var(--ink); border-radius: 16px; background: var(--paper); overflow: hidden; }
+  .ledger .head {
+    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+    background: #fff; border-bottom: 2px solid var(--ink); padding: 18px 26px;
+  }
+  .ledger .head .deva { font-family: "Tiro Devanagari Hindi", serif; font-size: 26px; color: var(--bahi); }
+  .ledger .head .en { font-family: Anton, sans-serif; text-transform: uppercase; letter-spacing: 0.04em; font-size: 15px; color: var(--ink); }
+  .row { display: grid; grid-template-columns: 250px 1fr; gap: 18px; padding: 17px 26px; border-top: 1px dashed rgba(35,32,26,0.3); align-items: baseline; }
+  .row:first-of-type { border-top: none; }
+  .row h3 { font-size: 16px; font-weight: 800; }
+  .row p { font-size: 15px; color: #4b453b; }
+  .row .soon { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--bahi); border: 1.5px solid var(--bahi); border-radius: 999px; padding: 1px 8px; margin-left: 8px; white-space: nowrap; }
+
+  /* reach: platform chips */
+  .prow { padding: 18px 26px 20px; border-top: 1px dashed rgba(35,32,26,0.3); }
+  .prow:first-of-type { border-top: none; }
+  .prow h3 { font-size: 16px; font-weight: 800; margin-bottom: 12px; }
+  .prow h3 .tag { font-size: 10px; font-weight: 800; letter-spacing: 0.05em; border-radius: 999px; padding: 1px 7px; color: var(--bahi); border: 1.5px solid var(--bahi); margin-left: 8px; vertical-align: middle; }
+  .prow > p { font-size: 15px; color: #4b453b; max-width: 72ch; }
+  .plat-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .plat {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #fff; border: 2px solid var(--ink); border-radius: 999px;
+    padding: 7px 14px; font-weight: 700; font-size: 14px;
+  }
+  .plat .plogo { width: 18px; height: 18px; border-radius: 4px; flex: none; }
+  .plat .tag { font-size: 10px; font-weight: 800; letter-spacing: 0.05em; border-radius: 999px; padding: 1px 7px; }
+  .plat .tag.live { color: var(--wa); border: 1.5px solid var(--wa); }
+  .plat .tag.soonx { color: var(--bahi); border: 1.5px solid var(--bahi); }
+  .pnote { padding: 4px 26px 20px; font-size: 14px; color: #6b6353; }
+
+  /* seller voice */
+  section.voice { padding: 18px 0 0; }
+  .voice-grid { display: flex; gap: 22px; align-items: center; max-width: 620px; margin: 0 auto; }
+  .voice-photo { width: 108px; height: 108px; border-radius: 50%; border: 2px solid var(--ink); object-fit: cover; flex: none; background: #fff; }
+  .voice-quote { font-size: 19px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .voice-name { font-size: 14px; color: #6b6353; font-weight: 600; }
+  @media (max-width: 640px) { .voice-grid { flex-direction: column; text-align: center; } }
+
+  /* try it strip */
+  section.close { padding: 40px 0 90px; text-align: center; }
+  .close h2 { font-family: Anton, sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(28px, 4vw, 40px); margin-bottom: 12px; }
+  .close p { margin-bottom: 26px; color: #4b453b; }
+  .close .ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  footer { border-top: 2px solid var(--ink); padding: 26px 0 48px; font-size: 14px; color: #6b6353; }
+  footer .wrap { display: flex; gap: 18px; flex-wrap: wrap; align-items: baseline; }
+  footer .fm { font-family: Anton, sans-serif; color: var(--ink); font-size: 16px; }
+  footer .spacer { flex: 1; }
+
+  @media (max-width: 760px) {
+    .band { padding: 34px 26px 32px 38px; }
+    .row { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  /* small phones: tighter header */
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    .top { gap: 10px; }
+    .wordmark .deva { display: none; }
+    .top .btn { padding: 8px 12px; font-size: 13px; }
+    .lang { padding: 5px 9px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="wordmark" href="index.html">
+      <span class="latin">MEHTAJI</span>
+      <span class="deva">मेहताजी</span>
+    </a>
+    <div class="spacer"></div>
+    <select id="langSel" class="lang" aria-label="Language / भाषा">
+      <option value="hg">Hinglish</option>
+      <option value="hi">हिंदी</option>
+      <option value="en">English</option>
+      <option value="gu">ગુજરાતી</option>
+    </select>
+    <a class="btn btn-ghost" href="index.html" data-i18n="f_home">← Home</a>
+    <a class="btn btn-wa" href="https://wa.me/" data-wa data-wa-text="Hi Mehtaji! 👋">WhatsApp Mehtaji</a>
+  </header>
+
+  <section class="band">
+    <div class="eyebrow" data-i18n="f_eyebrow">सीधी भाषा में</div>
+    <h1 data-i18n="f_h1">Mehtaji <span class="underline">kya kya karta hai</span></h1>
+    <p class="sub" data-i18n="f_sub">Koi jargon nahi. Jo kaam ek accha munim dukaan ke liye karta tha, wahi Mehtaji aapke online business ke liye karta hai, WhatsApp pe.</p>
+  </section>
+
+  <section class="ledgers">
+    <div class="ledger">
+      <div class="head"><span class="deva" data-i18n="f_g1">बेचना</span><span class="en">Selling</span></div>
+      <div class="row">
+        <h3 data-i18n="f_r1h">WhatsApp pe listing</h3>
+        <p data-i18n="f_r1p">Photo bhejo, likh do, ya voice note chhod do: naam, price, stock. Mehtaji poori listing khud bana deta hai.</p>
+      </div>
+      <div class="row">
+        <h3 data-i18n="f_r2h">Har jagah ek saath live</h3>
+        <p data-i18n="f_r2p">Meesho, Amazon, aapki apni website. Ek message, sab pe live. Dubara type karna khatam.</p>
+      </div>
+      <div class="row">
+        <h3 data-i18n="f_r3h">Channel-wise pricing</h3>
+        <p data-i18n="f_r3p">"Amazon pe +5%, website pe MRP." Rule chat mein hi bol do, hamesha ke liye lag jaata hai.</p>
+      </div>
+      <div class="row">
+        <h3 data-i18n="f_r4h">Stock ka milaan</h3>
+        <p data-i18n="f_r4p">Ek jagah bika toh har jagah stock apne aap ghata. Do baar bikne ki tension nahi.</p>
+      </div>
+    </div>
+
+    <div class="ledger">
+      <div class="head"><span class="deva" data-i18n="f_g2">हिसाब</span><span class="en">Books</span></div>
+      <div class="row">
+        <h3 data-i18n="f_r5h">Har order books mein</h3>
+        <p data-i18n="f_r5p">Order aate hi saaf-suthri entry ban jaati hai, channel-wise, order number ke saath. Raat ke 2 baje bhi.</p>
+      </div>
+      <div class="row">
+        <h3 data-i18n="f_r6h">GST-ready hisaab</h3>
+        <p data-i18n="f_r6p">Sahi rate, sahi slab, sahi invoice, sab pehle se lag ke aata hai. Month-end ka panic, ab bas ek scroll.</p>
+      </div>
+      <div class="row">
+        <h3 data-i18n="f_r7h">Returns aur settlements</h3>
+        <p data-i18n="f_r7p">Wapsi ka maal aur marketplace se aaya paisa, dono ka milaan apne aap hota hai.</p>
+      </div>
+      <div class="row">
+        <h3 data-i18n="f_r8h">Aapka data, aapka hisaab</h3>
+        <p data-i18n="f_r8p">Sab kuch aapke apne hisaab mein rehta hai, kiraye ke SaaS mein band nahi. Kal Mehtaji hatao, hisaab aapke paas.</p>
+      </div>
+    </div>
+
+    <div class="ledger">
+      <div class="head"><span class="deva" data-i18n="f_g3">भरोसा</span><span class="en">Trust</span></div>
+      <div class="row">
+        <h3 data-i18n="f_r9h">Bina haan ke, kuch nahi</h3>
+        <p data-i18n="f_r9p">Paise ko chhoone wala har kaam (price change, refund, fix) aapki ✅ ka intezaar karta hai.</p>
+      </div>
+      <div class="row">
+        <h3 data-i18n="f_r10h">Galti khud pakadta hai</h3>
+        <p data-i18n="f_r10p">Listing subah 6 baje reject hui? Mehtaji error padhta hai, fix nikaalta hai, aapse poochh ke lagata hai.</p>
+      </div>
+      <div class="row">
+        <h3 data-i18n="f_r11h">Har action ka ledger</h3>
+        <p data-i18n="f_r11p">Kya hua, kab hua, kisne bola, sab likha rehta hai. Purane bahi-khate ki tarah, kuch gayab nahi hota.</p>
+      </div>
+      <div class="row">
+        <h3 data-i18n="f_r12h">24/7 munim</h3>
+        <p data-i18n="f_r12p">Mehtaji chhutti nahi leta, bhoolta nahi, aur ek saath sau kaam sambhal leta hai.</p>
+      </div>
+    </div>
+
+    <div class="ledger">
+      <div class="head"><span class="deva" data-i18n="f_g4">पहुँच</span><span class="en">Reach</span></div>
+      <div class="prow">
+        <h3 data-i18n="f_p1h">Jahan aap bechte ho</h3>
+        <div class="plat-chips">
+          <span class="plat"><img class="plogo" src="logos/meesho.png" alt="Meesho logo" width="18" height="18" loading="lazy">Meesho <b class="tag live" data-i18n="tag_live">LIVE</b></span>
+          <span class="plat"><img class="plogo" src="logos/amazon.png" alt="Amazon logo" width="18" height="18" loading="lazy">Amazon <b class="tag live" data-i18n="tag_live">LIVE</b></span>
+          <span class="plat"><svg class="plogo" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="#23201A" stroke-width="2"/><ellipse cx="12" cy="12" rx="4" ry="9" fill="none" stroke="#23201A" stroke-width="2"/><line x1="3" y1="12" x2="21" y2="12" stroke="#23201A" stroke-width="2"/></svg><span data-i18n="chip_web">Apni website</span> <b class="tag live" data-i18n="tag_live">LIVE</b></span>
+          <span class="plat"><img class="plogo" src="logos/flipkart.png" alt="Flipkart logo" width="18" height="18" loading="lazy">Flipkart <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><img class="plogo" src="logos/myntra.png" alt="Myntra logo" width="18" height="18" loading="lazy">Myntra <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><img class="plogo" src="logos/jiomart.png" alt="JioMart logo" width="18" height="18" loading="lazy">JioMart <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><img class="plogo" src="logos/ajio.png" alt="Ajio logo" width="18" height="18" loading="lazy">Ajio <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><img class="plogo" src="logos/snapdeal.png" alt="Snapdeal logo" width="18" height="18" loading="lazy">Snapdeal <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><img class="plogo" src="logos/nykaa.png" alt="Nykaa logo" width="18" height="18" loading="lazy">Nykaa <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><img class="plogo" src="logos/glowroad.png" alt="GlowRoad logo" width="18" height="18" loading="lazy">GlowRoad <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><img class="plogo" src="logos/ondc.png" alt="ONDC logo" width="18" height="18" loading="lazy">ONDC <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><img class="plogo" src="logos/indiamart.png" alt="IndiaMART logo" width="18" height="18" loading="lazy">IndiaMART <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><img class="plogo" src="logos/udaan.png" alt="Udaan logo" width="18" height="18" loading="lazy">Udaan <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><img class="plogo" src="logos/shopify.png" alt="Shopify logo" width="18" height="18" loading="lazy">Shopify <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><img class="plogo" src="logos/woocommerce.png" alt="WooCommerce logo" width="18" height="18" loading="lazy">WooCommerce <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+        </div>
+      </div>
+      <div class="prow">
+        <h3 data-i18n="f_p2h">Jahan aap baat karte ho</h3>
+        <div class="plat-chips">
+          <span class="plat"><img class="plogo" src="logos/whatsapp.png" alt="WhatsApp logo" width="18" height="18" loading="lazy">WhatsApp <b class="tag live" data-i18n="tag_live">LIVE</b></span>
+          <span class="plat"><img class="plogo" src="logos/telegram.png" alt="Telegram logo" width="18" height="18" loading="lazy">Telegram <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><img class="plogo" src="logos/instagram.png" alt="Instagram logo" width="18" height="18" loading="lazy">Instagram DM <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><svg class="plogo" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="4" fill="#34C759"/><path d="M8 17 L8 21 L13 17 Z" fill="#34C759"/></svg><span data-i18n="chip_sms">Phone ka message (SMS)</span> <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><img class="plogo" src="logos/signal.png" alt="Signal logo" width="18" height="18" loading="lazy">Signal <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><img class="plogo" src="logos/messenger.png" alt="Facebook Messenger logo" width="18" height="18" loading="lazy">Messenger <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+          <span class="plat"><svg class="plogo" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3" fill="none" stroke="#23201A" stroke-width="2"/><path d="M3 7 L12 14 L21 7" fill="none" stroke="#23201A" stroke-width="2"/></svg>Email <b class="tag soonx" data-i18n="tag_soon">JALD</b></span>
+        </div>
+      </div>
+      <div class="prow">
+        <h3><span data-i18n="f_p3h">Wahan ke products bhi utha lete hain</span> <b class="tag" data-i18n="tag_soon">JALD</b></h3>
+        <p data-i18n="f_p3p">Pehle se Meesho ya Amazon pe bech rahe ho? Mehtaji aapka poora catalog wahin se khinch leta hai: naam, photo, price, stock. Books mein daal deta hai aur baaki channels pe bhi laga deta hai. Dubara typing zero.</p>
+      </div>
+      <p class="pnote" data-i18n="f_pnote">Naya app seekhne ki zaroorat nahi. Jo aap pehle se use karte ho, Mehtaji wahin aa jaata hai.</p>
+    </div>
+  </section>
+
+  <section class="voice">
+    <div class="voice-grid">
+      <img class="voice-photo" src="pathika-side.jpg" alt="Pathika, a clothing seller from Surat" width="480" height="480" loading="lazy">
+      <div>
+        <p class="voice-quote" data-i18n="f_voice">"Mehtaji kaam sambhal leta hai. Main dhandha badhati hoon."</p>
+        <div class="voice-name" data-i18n="f_voice_name">Pathika · kapde ka kaam, Surat</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="close">
+    <h2 data-i18n="f_close_h2">Padhna chhodo, karke dekho</h2>
+    <p data-i18n="f_close_p">Homepage pe Mehtaji ka demo chal raha hai. Apna product type karo, live hote dekho.</p>
+    <div class="ctas">
+      <a class="btn btn-ghost" href="index.html#chat" data-i18n="f_demo_btn">Demo try karo</a>
+      <a class="btn btn-wa" href="https://wa.me/" data-wa data-wa-text="Hi Mehtaji! 👋 Features dekhe, ab baat karni hai.">WhatsApp Mehtaji</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="fm">MEHTAJI</span>
+    <span data-i18n="foot_tag">aapka digital munim</span>
+    <div class="spacer"></div>
+    <span>Built for Indian sellers 🇮🇳</span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  // Keep in sync with index.html: ONE number for the whole site.
+  const WA_NUMBER = "919427730625";
+  const waLink = (text) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+  document.querySelectorAll("[data-wa]").forEach((a) => {
+    a.href = waLink(a.dataset.waText || "Hi Mehtaji! 👋");
+  });
+
+  /* ---------- i18n: hg = Hinglish (default), hi, en, gu ---------- */
+  const I18N = {
+    hg: {
+      f_home: `← Home`, f_eyebrow: `सीधी भाषा में`,
+      f_h1: `Mehtaji <span class="underline">kya kya karta hai</span>`,
+      f_sub: `Koi jargon nahi. Jo kaam ek accha munim dukaan ke liye karta tha, wahi Mehtaji aapke online business ke liye karta hai, WhatsApp pe.`,
+      f_g1: `बेचना`, f_g2: `हिसाब`, f_g3: `भरोसा`,
+      f_r1h: `WhatsApp pe listing`,
+      f_r1p: `Photo bhejo, likh do, ya voice note chhod do: naam, price, stock. Mehtaji poori listing khud bana deta hai.`,
+      f_r2h: `Har jagah ek saath live`,
+      f_r2p: `Meesho, Amazon, aapki apni website. Ek message, sab pe live. Dubara type karna khatam.`,
+      f_r3h: `Channel-wise pricing`,
+      f_r3p: `"Amazon pe +5%, website pe MRP." Rule chat mein hi bol do, hamesha ke liye lag jaata hai.`,
+      f_r4h: `Stock ka milaan`,
+      f_r4p: `Ek jagah bika toh har jagah stock apne aap ghata. Do baar bikne ki tension nahi.`,
+      f_r5h: `Har order books mein`,
+      f_r5p: `Order aate hi saaf-suthri entry ban jaati hai, channel-wise, order number ke saath. Raat ke 2 baje bhi.`,
+      f_r6h: `GST-ready hisaab`,
+      f_r6p: `Sahi rate, sahi slab, sahi invoice, sab pehle se lag ke aata hai. Month-end ka panic, ab bas ek scroll.`,
+      f_r7h: `Returns aur settlements`,
+      f_r7p: `Wapsi ka maal aur marketplace se aaya paisa, dono ka milaan apne aap hota hai.`,
+      f_r8h: `Aapka data, aapka hisaab`,
+      f_r8p: `Sab kuch aapke apne hisaab mein rehta hai, kiraye ke SaaS mein band nahi. Kal Mehtaji hatao, hisaab aapke paas.`,
+      f_r9h: `Bina haan ke, kuch nahi`,
+      f_r9p: `Paise ko chhoone wala har kaam (price change, refund, fix) aapki ✅ ka intezaar karta hai.`,
+      f_r10h: `Galti khud pakadta hai`,
+      f_r10p: `Listing subah 6 baje reject hui? Mehtaji error padhta hai, fix nikaalta hai, aapse poochh ke lagata hai.`,
+      f_r11h: `Har action ka ledger`,
+      f_r11p: `Kya hua, kab hua, kisne bola, sab likha rehta hai. Purane bahi-khate ki tarah, kuch gayab nahi hota.`,
+      f_r12h: `24/7 munim`,
+      f_r12p: `Mehtaji chhutti nahi leta, bhoolta nahi, aur ek saath sau kaam sambhal leta hai.`,
+      f_g4: `पहुँच`, f_p1h: `Jahan aap bechte ho`, f_p2h: `Jahan aap baat karte ho`,
+      chip_web: `Apni website`, chip_sms: `Phone ka message (SMS)`, tag_live: `LIVE`, tag_soon: `JALD`,
+      f_p3h: `Wahan ke products bhi utha lete hain`,
+      f_p3p: `Pehle se Meesho ya Amazon pe bech rahe ho? Mehtaji aapka poora catalog wahin se khinch leta hai: naam, photo, price, stock. Books mein daal deta hai aur baaki channels pe bhi laga deta hai. Dubara typing zero.`,
+      f_pnote: `Naya app seekhne ki zaroorat nahi. Jo aap pehle se use karte ho, Mehtaji wahin aa jaata hai.`,
+      f_close_h2: `Padhna chhodo, karke dekho`,
+      f_close_p: `Homepage pe Mehtaji ka demo chal raha hai. Apna product type karo, live hote dekho.`,
+      f_demo_btn: `Demo try karo`,
+      foot_tag: `aapka digital munim`,
+      f_voice: `"Mehtaji kaam sambhal leta hai. Main dhandha badhati hoon."`,
+      f_voice_name: `Pathika · kapde ka kaam, Surat`,
+    },
+    hi: {
+      f_home: `← होम`, f_eyebrow: `सीधी भाषा में`,
+      f_h1: `मेहताजी <span class="underline">क्या-क्या करता है</span>`,
+      f_sub: `कोई jargon नहीं. जो काम एक अच्छा मुनीम दुकान के लिए करता था, वही मेहताजी आपके online business के लिए करता है, WhatsApp पे.`,
+      f_g1: `बेचना`, f_g2: `हिसाब`, f_g3: `भरोसा`,
+      f_r1h: `WhatsApp पे listing`,
+      f_r1p: `फोटो भेजो, लिख दो, या voice note छोड़ दो: नाम, दाम, स्टॉक. मेहताजी पूरी listing खुद बना देता है.`,
+      f_r2h: `हर जगह एक साथ लाइव`,
+      f_r2p: `Meesho, Amazon, आपकी अपनी website. एक मैसेज, सब पर लाइव. दोबारा type करना ख़त्म.`,
+      f_r3h: `चैनल-वाइज़ दाम`,
+      f_r3p: `"Amazon पे +5%, website पे MRP." नियम chat में ही बोल दो, हमेशा के लिए लग जाता है.`,
+      f_r4h: `स्टॉक का मिलान`,
+      f_r4p: `एक जगह बिका तो हर जगह स्टॉक अपने आप घटा. दो बार बिकने की टेंशन नहीं.`,
+      f_r5h: `हर ऑर्डर बही में`,
+      f_r5p: `ऑर्डर आते ही साफ़-सुथरी एंट्री बन जाती है, चैनल-वाइज़, order number के साथ. रात के 2 बजे भी.`,
+      f_r6h: `GST-ready हिसाब`,
+      f_r6p: `सही rate, सही slab, सही invoice, सब पहले से लगकर आता है. महीने के आख़िर का panic, अब बस एक स्क्रॉल.`,
+      f_r7h: `रिटर्न और settlement`,
+      f_r7p: `वापसी का माल और marketplace से आया पैसा, दोनों का मिलान अपने आप होता है.`,
+      f_r8h: `आपका डेटा, आपका हिसाब`,
+      f_r8p: `सब कुछ आपके अपने हिसाब में रहता है, किराए के SaaS में बंद नहीं. कल मेहताजी हटाओ, हिसाब आपके पास.`,
+      f_r9h: `बिना हाँ के, कुछ नहीं`,
+      f_r9p: `पैसों को छूने वाला हर काम (दाम बदलना, refund, fix) आपकी ✅ का इंतज़ार करता है.`,
+      f_r10h: `गलती खुद पकड़ता है`,
+      f_r10p: `Listing सुबह 6 बजे reject हुई? मेहताजी error पढ़ता है, fix निकालता है, आपसे पूछकर लगाता है.`,
+      f_r11h: `हर action का लेखा`,
+      f_r11p: `क्या हुआ, कब हुआ, किसने बोला, सब लिखा रहता है. पुराने बही-खाते की तरह, कुछ ग़ायब नहीं होता.`,
+      f_r12h: `24/7 मुनीम`,
+      f_r12p: `मेहताजी छुट्टी नहीं लेता, भूलता नहीं, और एक साथ सौ काम संभाल लेता है.`,
+      f_g4: `पहुँच`, f_p1h: `जहाँ आप बेचते हैं`, f_p2h: `जहाँ आप बात करते हैं`,
+      chip_web: `अपनी website`, chip_sms: `फ़ोन का message (SMS)`, tag_live: `LIVE`, tag_soon: `जल्द`,
+      f_p3h: `वहाँ के products भी उठा लेते हैं`,
+      f_p3p: `पहले से Meesho या Amazon पर बेच रहे हो? मेहताजी आपका पूरा catalog वहीं से खींच लेता है: नाम, फोटो, दाम, स्टॉक. बही में डाल देता है और बाकी channels पर भी लगा देता है. दोबारा typing zero.`,
+      f_pnote: `नया app सीखने की ज़रूरत नहीं. जो आप पहले से use करते हैं, मेहताजी वहीं आ जाता है.`,
+      f_close_h2: `पढ़ना छोड़ो, करके देखो`,
+      f_close_p: `Homepage पर मेहताजी का demo चल रहा है. अपना product type करो, लाइव होते देखो.`,
+      f_demo_btn: `Demo try करो`,
+      foot_tag: `आपका डिजिटल मुनीम`,
+      f_voice: `"मेहताजी काम संभाल लेता है. मैं धंधा बढ़ाती हूँ."`,
+      f_voice_name: `पथिका · कपड़े का काम, सूरत`,
+    },
+    en: {
+      f_home: `← Home`, f_eyebrow: `In plain words`,
+      f_h1: `Everything <span class="underline">Mehtaji does</span>`,
+      f_sub: `No jargon. What a good munim did for the shop, Mehtaji does for your online business, on WhatsApp.`,
+      f_g1: `बेचना`, f_g2: `हिसाब`, f_g3: `भरोसा`,
+      f_r1h: `List on WhatsApp`,
+      f_r1p: `Send a photo, type it, or leave a voice note: name, price, stock. Mehtaji builds the full listing itself.`,
+      f_r2h: `Live everywhere at once`,
+      f_r2p: `Meesho, Amazon, your own website. One message, live on all. No retyping, ever.`,
+      f_r3h: `Channel-wise pricing`,
+      f_r3p: `"+5% on Amazon, MRP on the website." Say the rule in chat once, it applies forever.`,
+      f_r4h: `Stock stays in sync`,
+      f_r4p: `Sell in one place and stock drops everywhere. No double-selling scares.`,
+      f_r5h: `Every order in your books`,
+      f_r5p: `The moment an order lands, a clean entry is written, channel-wise, with the order number. Even at 2am.`,
+      f_r6h: `GST-ready books`,
+      f_r6p: `Right rate, right slab, right invoice, all applied up front. Month-end panic becomes one scroll.`,
+      f_r7h: `Returns and settlements`,
+      f_r7p: `Returned goods and marketplace payouts, both reconciled automatically.`,
+      f_r8h: `Your data, your books`,
+      f_r8p: `Everything lives in your own books, not locked in a rented SaaS. Drop Mehtaji tomorrow, the books stay with you.`,
+      f_r9h: `Nothing without your yes`,
+      f_r9p: `Anything that touches money (price change, refund, fix) waits for your ✅.`,
+      f_r10h: `Catches its own mistakes`,
+      f_r10p: `Listing rejected at 6am? Mehtaji reads the error, finds the fix, and applies it only after asking you.`,
+      f_r11h: `A ledger of every action`,
+      f_r11p: `What happened, when, on whose word, all written down. Like the old bahi-khata, nothing goes missing.`,
+      f_r12h: `A munim who never sleeps`,
+      f_r12p: `Mehtaji takes no holidays, forgets nothing, and handles a hundred things at once.`,
+      f_g4: `पहुँच`, f_p1h: `Where you sell`, f_p2h: `Where you chat`,
+      chip_web: `Your website`, chip_sms: `Phone messages (SMS)`, tag_live: `LIVE`, tag_soon: `SOON`,
+      f_p3h: `We pull your products from there too`,
+      f_p3p: `Already selling on Meesho or Amazon? Mehtaji pulls your whole catalog from there: names, photos, prices, stock. Into your books, onto every other channel. Zero retyping.`,
+      f_pnote: `No new app to learn. Whatever you already use, Mehtaji shows up there.`,
+      f_close_h2: `Stop reading, try it`,
+      f_close_p: `There's a live Mehtaji demo on the homepage. Type your product, watch it go live.`,
+      f_demo_btn: `Try the demo`,
+      foot_tag: `your digital munim`,
+      f_voice: `"Mehtaji handles the work. I grow the business."`,
+      f_voice_name: `Pathika · clothing seller, Surat`,
+    },
+    gu: {
+      f_home: `← હોમ`, f_eyebrow: `સીધી ભાષામાં`,
+      f_h1: `મેહતાજી <span class="underline">શું શું કરે છે</span>`,
+      f_sub: `કોઈ jargon નહીં. જે કામ એક સારો મુનીમ દુકાન માટે કરતો, એ જ મેહતાજી તમારા online business માટે કરે છે, WhatsApp પર.`,
+      f_g1: `વેચાણ`, f_g2: `હિસાબ`, f_g3: `ભરોસો`,
+      f_r1h: `WhatsApp પર listing`,
+      f_r1p: `ફોટો મોકલો, લખી દો, કે voice note મૂકો: નામ, ભાવ, સ્ટોક. મેહતાજી આખી listing જાતે બનાવી દે.`,
+      f_r2h: `બધે એક સાથે લાઇવ`,
+      f_r2p: `Meesho, Amazon, તમારી પોતાની website. એક મેસેજ, બધે લાઇવ. ફરી type કરવાનું બંધ.`,
+      f_r3h: `ચેનલ-વાઇઝ ભાવ`,
+      f_r3p: `"Amazon પર +5%, website પર MRP." નિયમ chatમાં જ કહી દો, હંમેશ માટે લાગી જાય.`,
+      f_r4h: `સ્ટોકનો મેળ`,
+      f_r4p: `એક જગ્યાએ વેચાયું તો બધે સ્ટોક આપોઆપ ઘટે. બે વાર વેચાવાની ચિંતા નહીં.`,
+      f_r5h: `દરેક ઓર્ડર ચોપડામાં`,
+      f_r5p: `ઓર્ડર આવતાં જ ચોખ્ખી એન્ટ્રી બની જાય, ચેનલ-વાઇઝ, order number સાથે. રાત્રે 2 વાગ્યે પણ.`,
+      f_r6h: `GST-ready હિસાબ`,
+      f_r6p: `સાચો rate, સાચો slab, સાચું invoice, બધું પહેલેથી લાગીને આવે. મહિનાના અંતનું ટેન્શન, હવે બસ એક સ્ક્રોલ.`,
+      f_r7h: `રિટર્ન અને settlement`,
+      f_r7p: `પાછો આવેલો માલ અને marketplaceથી આવેલા પૈસા, બંનેનો મેળ આપોઆપ થાય.`,
+      f_r8h: `તમારો ડેટા, તમારો હિસાબ`,
+      f_r8p: `બધું તમારા પોતાના હિસાબમાં રહે, ભાડાના SaaSમાં બંધ નહીં. કાલે મેહતાજી હટાવો, હિસાબ તમારી પાસે.`,
+      f_r9h: `હા વગર, કંઈ નહીં`,
+      f_r9p: `પૈસાને અડતું દરેક કામ (ભાવ બદલવો, refund, fix) તમારી ✅ ની રાહ જુએ.`,
+      f_r10h: `ભૂલ જાતે પકડે`,
+      f_r10p: `Listing સવારે 6 વાગ્યે reject થઈ? મેહતાજી error વાંચે, fix શોધે, તમને પૂછીને લગાવે.`,
+      f_r11h: `દરેક actionનો ચોપડો`,
+      f_r11p: `શું થયું, ક્યારે થયું, કોણે કહ્યું, બધું લખેલું રહે. જૂના ચોપડાની જેમ, કંઈ ગાયબ થતું નથી.`,
+      f_r12h: `24/7 મુનીમ`,
+      f_r12p: `મેહતાજી રજા લેતો નથી, ભૂલતો નથી, અને એક સાથે સો કામ સંભાળી લે.`,
+      f_g4: `પહોંચ`, f_p1h: `જ્યાં તમે વેચો છો`, f_p2h: `જ્યાં તમે વાત કરો છો`,
+      chip_web: `તમારી website`, chip_sms: `ફોનનો message (SMS)`, tag_live: `LIVE`, tag_soon: `જલદી`,
+      f_p3h: `ત્યાંના products પણ ઉઠાવી લઈએ છીએ`,
+      f_p3p: `પહેલેથી Meesho કે Amazon પર વેચો છો? મેહતાજી તમારું આખું catalog ત્યાંથી ખેંચી લે છે: નામ, ફોટો, ભાવ, સ્ટોક. ચોપડામાં નાખી દે અને બાકીની channels પર પણ લગાવી દે. ફરી typing zero.`,
+      f_pnote: `કોઈ નવી app શીખવાની જરૂર નથી. તમે જે વાપરો છો, મેહતાજી ત્યાં જ આવી જાય છે.`,
+      f_close_h2: `વાંચવાનું છોડો, કરીને જુઓ`,
+      f_close_p: `Homepage પર મેહતાજીનો demo ચાલે છે. તમારું product type કરો, લાઇવ થતું જુઓ.`,
+      f_demo_btn: `Demo try કરો`,
+      foot_tag: `તમારો ડિજિટલ મુનીમ`,
+      f_voice: `"મેહતાજી કામ સંભાળી લે છે. હું ધંધો વધારું છું."`,
+      f_voice_name: `પથિકા · કપડાંનું કામ, સુરત`,
+    },
+  };
+
+  let lang = null;
+  try { lang = localStorage.getItem("mehtaji-lang"); } catch {}
+  if (!I18N[lang]) lang = "hg";
+  const sel = document.getElementById("langSel");
+
+  function applyLang(l) {
+    lang = l;
+    try { localStorage.setItem("mehtaji-lang", l); } catch {}
+    document.documentElement.lang = l === "hg" ? "en" : l;
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const v = I18N[lang][el.dataset.i18n] ?? I18N.hg[el.dataset.i18n];
+      if (v != null) el.innerHTML = v;
+    });
+    if (sel) sel.value = l;
+  }
+  if (sel) sel.addEventListener("change", () => applyLang(sel.value));
+  applyLang(lang);
+})();
+</script>
+
+</body>
+</html>
