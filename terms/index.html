@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#A4243B">
+<title>Mehtaji · Terms and Conditions (Beta)</title>
+<meta name="description" content="Mehtaji beta Terms and Conditions, in simple English. Version beta-1, last updated 3 August 2026.">
+<link rel="canonical" href="https://getmehtaji.com/terms/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bahi: #A4243B;
+    --bahi-deep: #7E1B2E;
+    --paper: #FAF3E3;
+    --ink: #23201A;
+    --haldi: #F5B301;
+    --rule: rgba(72, 105, 154, 0.18);
+    --wa: #075E54;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "Hanken Grotesk", system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    background-image:
+      linear-gradient(to right, transparent 63px, var(--bahi) 63px, var(--bahi) 64px, transparent 64px, transparent 67px, var(--bahi) 67px, var(--bahi) 68px, transparent 68px),
+      repeating-linear-gradient(to bottom, transparent 0, transparent 31px, var(--rule) 31px, var(--rule) 32px);
+  }
+  @media (max-width: 760px) { body { background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 31px, var(--rule) 31px, var(--rule) 32px); } }
+
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  header.top { display: flex; align-items: center; gap: 14px; padding: 18px 0; }
+  .wordmark { display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--ink); }
+  .wordmark .latin { font-family: Anton, sans-serif; font-size: 26px; letter-spacing: 0.02em; }
+  .wordmark .deva { font-family: "Tiro Devanagari Hindi", serif; font-size: 18px; color: var(--bahi); }
+  .top .spacer { flex: 1; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 800; border-radius: 10px;
+    padding: 9px 16px; font-size: 14px; transition: transform 0.12s ease;
+  }
+  .btn:active { transform: scale(0.98); }
+  .btn:focus-visible { outline: 3px solid var(--haldi); outline-offset: 2px; }
+  .btn-wa { background: var(--wa); color: #fff; }
+  .btn-ghost { color: var(--ink); border: 2px solid var(--ink); }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    .top { gap: 10px; }
+    .wordmark .deva { display: none; }
+    .top .btn-wa { display: none; }
+  }
+
+  .band {
+    background: var(--bahi); color: var(--paper); border-radius: 22px; margin-top: 8px;
+    padding: 40px 48px 36px 64px; position: relative; overflow: hidden;
+    background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 14px, rgba(250,243,227,0.35) 14px, rgba(250,243,227,0.35) 22px);
+    background-size: 3px 100%; background-position: 30px 0; background-repeat: repeat-y;
+  }
+  .band .eyebrow { font-family: "Tiro Devanagari Hindi", serif; font-size: 20px; color: var(--haldi); margin-bottom: 10px; }
+  h1 {
+    font-family: Anton, sans-serif; font-weight: 400; text-transform: uppercase;
+    font-size: clamp(30px, 5vw, 48px); line-height: 1.04; letter-spacing: 0.01em; margin-bottom: 14px;
+  }
+  h1 .underline { box-shadow: inset 0 -0.18em 0 var(--haldi); }
+  .band .meta { font-size: 15px; color: rgba(250,243,227,0.92); }
+  .band .beta { display: inline-block; background: var(--haldi); color: var(--ink); font-size: 12px; font-weight: 800; border-radius: 999px; padding: 2px 10px; letter-spacing: 0.05em; margin-right: 10px; vertical-align: middle; }
+  @media (max-width: 760px) { .band { padding: 30px 26px 28px 38px; } }
+
+  .note {
+    background: #fff; border: 2px solid var(--ink); border-radius: 14px;
+    padding: 14px 18px; font-size: 15px; margin: 26px 0 6px;
+  }
+  .note .deva { font-family: "Tiro Devanagari Hindi", serif; color: var(--bahi); }
+
+  section.terms { padding: 22px 0 10px; }
+  .ledger { border: 2px solid var(--ink); border-radius: 16px; background: var(--paper); overflow: hidden; }
+  .ledger .head {
+    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+    background: #fff; border-bottom: 2px solid var(--ink); padding: 18px 26px;
+  }
+  .ledger .head .deva { font-family: "Tiro Devanagari Hindi", serif; font-size: 26px; color: var(--bahi); }
+  .ledger .head .en { font-family: Anton, sans-serif; text-transform: uppercase; letter-spacing: 0.04em; font-size: 15px; color: var(--ink); }
+  .sec { padding: 17px 26px; border-top: 1px dashed rgba(35,32,26,0.3); }
+  .sec:first-of-type { border-top: none; }
+  .sec h2 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+  .sec h2 .n { color: var(--bahi); margin-right: 8px; }
+  .sec p { font-size: 15px; color: #4b453b; }
+  .agree { padding: 20px 26px; border-top: 2px solid var(--ink); background: #fff; font-weight: 800; font-size: 15px; }
+
+  section.close { padding: 36px 0 80px; text-align: center; }
+  .close p { margin-bottom: 20px; color: #4b453b; }
+  .close .btn { padding: 13px 22px; font-size: 16px; }
+
+  footer { border-top: 2px solid var(--ink); padding: 26px 0 48px; font-size: 14px; color: #6b6353; }
+  footer .wrap { display: flex; gap: 18px; flex-wrap: wrap; align-items: baseline; }
+  footer .fm { font-family: Anton, sans-serif; color: var(--ink); font-size: 16px; }
+  footer .spacer { flex: 1; }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="wordmark" href="/">
+      <span class="latin">MEHTAJI</span>
+      <span class="deva">मेहताजी</span>
+    </a>
+    <div class="spacer"></div>
+    <a class="btn btn-ghost" href="/">← Home</a>
+    <a class="btn btn-wa" href="https://wa.me/" data-wa data-wa-text="Hi Mehtaji! 👋 Terms padhe, ek sawaal hai.">WhatsApp Mehtaji</a>
+  </header>
+
+  <section class="band">
+    <div class="eyebrow">भरोसे की बात</div>
+    <h1>Terms and <span class="underline">Conditions</span></h1>
+    <p class="meta"><span class="beta">BETA VERSION</span> Version beta-1 · Last updated: 3 August 2026</p>
+  </section>
+
+  <div class="note"><span class="deva">एक बात:</span> Ye page English mein hai. Koi sawaal ho toh WhatsApp par hi poochh lijiye — Mehtaji khud samjha dega. 🙏</div>
+
+  <section class="terms">
+    <div class="ledger">
+      <div class="head"><span class="deva">शर्तें</span><span class="en">Mehtaji (Beta Version)</span></div>
+
+      <div class="sec">
+        <h2><span class="n">1.</span>Beta Stage</h2>
+        <p>Mehtaji is currently in beta version. This means the product is still under testing. Please do not use it for final production work. Always check your product details and listings before final upload on any marketplace.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">2.</span>Marketplace Support</h2>
+        <p>Right now Mehtaji works with Meesho only. We are working to connect other marketplaces like Amazon, Flipkart and others soon. Until then, please use Mehtaji only for Meesho related work.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">3.</span>Your Account</h2>
+        <p>You are responsible for your login details and WhatsApp number used with Mehtaji. Please do not share your account access with anyone else. Any activity done using your account will be considered as done by you.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">4.</span>Correct Information</h2>
+        <p>You must give correct product, stock and order details to Mehtaji. If wrong information is given, it may cause listing errors or order problems. Mehtaji is not responsible for such issues.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">5.</span>Data Usage</h2>
+        <p>We may collect and use your data such as orders, listings, stock details and chat data to give you this service and improve your experience. We do not sell your data to any third party.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">6.</span>Sharing Your Details</h2>
+        <p>By using Mehtaji, you agree to share your personal and business details like name, phone number, business name and other required information needed to use our service.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">7.</span>WhatsApp Usage</h2>
+        <p>By connecting WhatsApp with Mehtaji, you agree to receive order updates, listing updates and business related messages from us on WhatsApp.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">8.</span>Bugs and Errors</h2>
+        <p>Since Mehtaji is in beta, some features may have bugs, errors or unexpected behaviour. We request you to report any issue you face so we can fix it quickly.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">9.</span>No Guarantee of Uptime</h2>
+        <p>During beta, Mehtaji may have downtime, slow response or service interruption at times. We are continuously working to make the service stable and reliable.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">10.</span>Feature Changes</h2>
+        <p>Features of Mehtaji may be added, changed or removed at any time during beta without prior notice, as we keep improving the product.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">11.</span>Feedback Use</h2>
+        <p>Any feedback or suggestion you give during beta may be used by us to improve Mehtaji's features and service.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">12.</span>Account Responsibility</h2>
+        <p>Even if Mehtaji suggests or automates certain actions, you are responsible for checking your orders and listings before taking any final action.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">13.</span>Financial Matters</h2>
+        <p>Mehtaji is only for product listing and order management purpose. We are not responsible for payment, refund or any financial matter between you, the marketplace or your customer.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">14.</span>No Guarantee of Sales</h2>
+        <p>Mehtaji helps you manage your business better, but we do not guarantee increase in sales or profit.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">15.</span>Limited Liability</h2>
+        <p>Mehtaji is not responsible for any loss caused by internet issues, marketplace policy changes, wrong data entry, bugs during beta, or any financial loss related to your business.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">16.</span>Account Closure</h2>
+        <p>You or Mehtaji can stop the service anytime. After account closure, your data may be removed as per our data policy.</p>
+      </div>
+
+      <div class="sec">
+        <h2><span class="n">17.</span>Changes to Terms</h2>
+        <p>These terms may be updated as Mehtaji moves from beta to full version. We will inform you whenever there is any change.</p>
+      </div>
+
+      <div class="agree">By using Mehtaji, you agree to all the above terms and conditions.</div>
+    </div>
+  </section>
+
+  <section class="close">
+    <p>Koi shak ya sawaal? WhatsApp par poochhiye — seedha jawab milega.</p>
+    <a class="btn btn-wa" href="https://wa.me/" data-wa data-wa-text="Hi Mehtaji! 👋 Terms ke baare mein ek sawaal hai.">WhatsApp Mehtaji</a>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="fm">MEHTAJI</span>
+    <span>aapka digital munim</span>
+    <div class="spacer"></div>
+    <a href="/terms/">Beta T&amp;C</a>
+    <span>Built for Indian sellers 🇮🇳</span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  // Keep in sync with index.html: ONE number for the whole site.
+  const WA_NUMBER = "919427730625";
+  const waLink = (text) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+  document.querySelectorAll("[data-wa]").forEach((a) => {
+    a.href = waLink(a.dataset.waText || "Hi Mehtaji! 👋");
+  });
+})();
+</script>
+
+</body>
+</html>
